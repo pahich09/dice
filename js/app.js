@@ -23,10 +23,13 @@ function getDiceRes() {
     const diceRollRes = [...new Array(2)].map((el) => getDiceRoll());
     const diceRollSumm = diceRollRes.reduce((a, b) => a + b);
     diceRollSumm !== playerInputValue
-        ? (cash -= playerRateValue, message.innerHTML = `Результат броска ${diceRollRes[0]} и ${diceRollRes[1]}. Вы загадали ${playerInputValue}. Ваш проиграш ${playerRateValue}$`)
+        ? (cash -= playerRateValue, message.innerHTML = `Результат броска ${diceRollRes[0]} и ${diceRollRes[1]}.
+         Вы загадали ${playerInputValue}. Ваш проиграш ${playerRateValue}$`)
         : diceRollRes[0] == diceRollRes[1]
-            ? (cash += playerRateValue * 3, message.innerHTML = `Результат броска ${diceRollRes[0]} и ${diceRollRes[1]}. Вы загадали ${playerInputValue}. Ваш выиграш ${playerRateValue * 3}$`)
-            : (cash += playerRateValue * 2, message.innerHTML = `Результат броска ${diceRollRes[0]} и ${diceRollRes[1]}. Вы загадали ${playerInputValue}. Ваш выиграш ${playerRateValue * 2}$`);
+            ? (cash += playerRateValue * 3, message.innerHTML = `Результат броска ${diceRollRes[0]} и ${diceRollRes[1]}. 
+            Вы загадали ${playerInputValue}. Ваш выиграш ${playerRateValue * 3}$`)
+            : (cash += playerRateValue * 2, message.innerHTML = `Результат броска ${diceRollRes[0]} и ${diceRollRes[1]}. 
+            Вы загадали ${playerInputValue}. Ваш выиграш ${playerRateValue * 2}$`);
 }
 
 btn.onclick = () => {
@@ -42,7 +45,7 @@ btn.onclick = () => {
         count++;
         getDiceRes();
         switch (true) {
-            case cash >= 10000:
+            case cash >= 1000:
                 message.innerHTML = `Победа! Вы выиграли ${cash}$ Количество бросков =  ${count}`;
                 btn.disabled = true;
                 reset.disabled = false;
