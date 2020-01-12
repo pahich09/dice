@@ -45,7 +45,7 @@ btn.onclick = () => {
         count++;
         getDiceRes();
         switch (true) {
-            case cash >= 1000:
+            case cash >= 10000:
                 message.innerHTML = `Победа! Вы выиграли ${cash}$ Количество бросков =  ${count}`;
                 btn.disabled = true;
                 reset.disabled = false;
